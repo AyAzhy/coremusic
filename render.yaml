@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: music-bot
+    runtime: python
+    buildCommand: bash render-build.sh
+    startCommand: python main.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11
+      - key: DISCORD_TOKEN
+        sync: false
+      - key: FFMPEG_PATH
+        value: ffmpeg
+      - key: DATABASE_PATH
+        value: /opt/render/project/src/data/musicbot.db
+      - key: LOG_LEVEL
+        value: INFO
